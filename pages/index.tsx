@@ -2,8 +2,6 @@ import testOrder from '../service/test-example.json'
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import { parseBody } from "next/dist/server/api-utils/node/parse-body.js"
 
-import * as Sentry from "@sentry/nextjs";
-
 import { Inter } from 'next/font/google'
 
 import * as bitgener from 'bitgener'
@@ -120,7 +118,6 @@ export const getServerSideProps = (async ({ req }) => {
     if (process.env?.VERCEL && process.env.VERCEL && req.method == 'GET') {
         throw new Error("Cannot render this page.")
     }
-    Sentry.setContext("postedBody", jsonOrder);
     let allOrderItems = new Array<OrderItem>()
     jsonOrder.DeliverySummary.forEach(deliverySum => {
         allOrderItems = [...allOrderItems, ...deliverySum.OrderItems]

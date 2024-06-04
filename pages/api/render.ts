@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import * as Sentry from "@sentry/nextjs";
 
 import { getPdf } from "@/service/convert"
 
@@ -16,7 +15,6 @@ export default async function handler(
         if (req.method !== 'POST') return res.status(405).end()
         let ssl = process.env.VERCEL ? 'https' : 'http';
         let reqBody = req.body
-        Sentry.setContext("body", reqBody);
         console.info("Request Body", reqBody)
         console.info(`Headers ${JSON.stringify(req.headers)}`)
 
@@ -29,7 +27,6 @@ export default async function handler(
         res.status(200).end(pdfBuffer)
 
     } catch (err: any) {
-        Sentry.captureException(err)
         if (err.message === 'Protocol error (Page.navigate): Cannot navigate to invalid URL')
             return res.status(404).end()
 

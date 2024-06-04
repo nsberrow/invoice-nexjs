@@ -1,7 +1,5 @@
 import Chromium from "@sparticuz/chromium";
 import puppeteer from "puppeteer-core";
-
-import * as Sentry from "@sentry/nextjs";
 // Or just use puppeteer directly
 // import puppeteer from 'puppeteer-core'
 
@@ -40,7 +38,6 @@ export const getPdf = async (url: string, payload: any) => {
     const options = await getOptions(isDev)
     const browser = await puppeteer.launch(options)
 
-
     const page = await browser.newPage()
     await page.setRequestInterception(true);
 
@@ -58,8 +55,6 @@ export const getPdf = async (url: string, payload: any) => {
                 'Content-Type': 'application/json'
             }
         };
-
-
 
         // Request modified... finish sending! 
         interceptedRequest.continue(data);
