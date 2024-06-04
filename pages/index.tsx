@@ -1,6 +1,7 @@
 import testOrder from '../service/test-example.json'
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import { parseBody } from "next/dist/server/api-utils/node/parse-body.js"
+import Image from 'next/image'
 
 import { Inter } from 'next/font/google'
 
