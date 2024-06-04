@@ -280,7 +280,7 @@ function OrderSection({ brandGrouping, currencySymbol, isBeGC, paymentDetails }:
                                 <tbody>
                                     <tr>
                                         <td width="50%">
-                                            <img
+                                            <Image
                                                 src={getImageUrl(brandGroupData.formatCode)}
                                                 alt=""
                                                 width="115"
@@ -379,7 +379,7 @@ export default function Page({
                             <tbody>
                                 <tr style={{ verticalAlign: 'top', textAlign: 'left' }}>
                                     <td>
-                                        <img
+                                        <Image
                                             src="https://cdn.tfgmedia.co.za/bash-assets/bash_black.png"
                                             alt=""
                                             height="60"
