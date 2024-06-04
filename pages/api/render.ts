@@ -32,6 +32,5 @@ export default async function handler(
 
         console.error(err)
         res.setHeader('Content-Type', 'text/plain')
-        res.status(500).send('Failed to generate invoice - recorded the exception in Sentry.')
     }
 }
